@@ -1,0 +1,302 @@
+---
+const slides = [
+  { id: 0, label: 'Hero Slide 1' },
+  { id: 1, label: 'Hero Slide 2' },
+  { id: 2, label: 'Hero Slide 3' },
+];
+---
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detal Studio — Montaż mebli IKEA na Śląsku</title>
+    <meta
+      name="description"
+      content="Detal Studio: precyzyjny montaż szaf PAX, systemów PLATSA i kuchni METOD na Śląsku. Estetyka, spokój i dopracowane detale."
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Crect width='10' height='10' fill='%230F1114'/%3E%3C/svg%3E"
+    />
+    <style is:global>
+      :root {
+        --bg: #0f1114;
+        --gold: #c8a96a;
+        --text: #f2efea;
+        --paper: #f6f3ee;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      h1,
+      .font-serif {
+        font-family: "Georgia", "Times New Roman", serif;
+      }
+      .cv-auto {
+        content-visibility: auto;
+        contain-intrinsic-size: 800px;
+      }
+      .placeholder {
+        border: 1px solid rgba(200, 169, 106, 0.35);
+        background: rgba(15, 17, 20, 0.7);
+        color: var(--text);
+      }
+      .placeholder.light {
+        background: rgba(246, 243, 238, 0.8);
+        color: #1b1c1f;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="relative min-h-[90vh] overflow-hidden">
+      <nav class="absolute left-0 right-0 top-0 z-20 flex items-center justify-between px-6 py-6 text-sm uppercase tracking-[0.2em]">
+        <span class="text-[0.95rem] font-semibold">Detal Studio</span>
+        <button
+          type="button"
+          class="flex h-10 w-10 items-center justify-center border border-[color:var(--gold)]/50 text-[color:var(--gold)]"
+          aria-label="Otwórz menu"
+        >
+          <span class="sr-only">Menu</span>
+          <span class="block h-0.5 w-5 bg-[color:var(--gold)]"></span>
+          <span class="mt-1 block h-0.5 w-5 bg-[color:var(--gold)]"></span>
+        </button>
+      </nav>
+
+      <div class="absolute inset-0 z-0">
+        {slides.map((slide, index) => (
+          <div
+            class={`hero-slide absolute inset-0 flex min-h-[90vh] items-center justify-center transition-opacity duration-500 ${
+              index === 0 ? '' : 'hidden'
+            }`}
+            data-slide={slide.id}
+          >
+            <div class="placeholder flex h-full min-h-[90vh] w-full items-center justify-center text-lg uppercase tracking-[0.35em]">
+              {slide.label}
+            </div>
+          </div>
+        ))}
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/80"></div>
+        <div class="pointer-events-none absolute inset-x-6 top-20 h-px bg-[color:var(--gold)]/30"></div>
+        <div class="pointer-events-none absolute inset-x-6 bottom-16 h-px bg-[color:var(--gold)]/30"></div>
+      </div>
+
+      <div class="relative z-10 flex min-h-[90vh] flex-col justify-end px-6 pb-16">
+        <div class="max-w-xl space-y-6">
+          <p class="text-xs uppercase tracking-[0.4em] text-[color:var(--gold)]">Detal Studio</p>
+          <h1 class="text-4xl uppercase leading-tight tracking-[0.08em] sm:text-5xl">
+            Montaż mebli IKEA na Śląsku – precyzyjnie i estetycznie
+          </h1>
+          <p class="text-base leading-relaxed text-[color:var(--text)]/90">
+            Montaż szaf PAX, systemów PLATSA i kuchni METOD w mieszkaniach i domach, gdzie liczy
+            się efekt końcowy i dopracowane detale. Pracuję tak, aby meble były równo ustawione,
+            dobrze wyregulowane i gotowe do codziennego użytkowania – bez „poprawek po czasie”.
+          </p>
+          <div class="flex items-center gap-4">
+            <a
+              href="#kontakt"
+              class="inline-flex items-center justify-center rounded-full border border-[color:var(--gold)] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[color:var(--gold)]"
+            >
+              Kontakt
+            </a>
+          </div>
+        </div>
+        <div class="mt-12 flex items-center justify-between">
+          <div class="flex items-center gap-3 text-[color:var(--gold)]">
+            <button
+              type="button"
+              class="slide-prev flex h-11 w-11 items-center justify-center border border-[color:var(--gold)]/60"
+              aria-label="Poprzedni slajd"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              class="slide-next flex h-11 w-11 items-center justify-center border border-[color:var(--gold)]/60"
+              aria-label="Następny slajd"
+            >
+              ›
+            </button>
+          </div>
+          <div id="slide-counter" class="text-xs uppercase tracking-[0.4em] text-[color:var(--gold)]">
+            01 / 03
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="cv-auto bg-[color:var(--paper)] px-6 py-16 text-[#1b1c1f]">
+        <div class="mx-auto max-w-5xl">
+          <div class="max-w-2xl space-y-4">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">Efekt końcowy</h2>
+            <p class="text-base leading-relaxed">
+              Dobrze wykonany montaż to taki, o którym nie trzeba myśleć po zakończeniu. Meble
+              stoją równo, działają płynnie i wyglądają estetycznie w gotowym wnętrzu.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-3">
+            {['Efekt 1', 'Efekt 2', 'Efekt 3'].map((label) => (
+              <div class="placeholder light flex aspect-[4/3] items-center justify-center text-sm uppercase tracking-[0.3em]">
+                {label}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-auto px-6 py-16">
+        <div class="mx-auto max-w-5xl space-y-10">
+          <div class="max-w-2xl space-y-3">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">Zakres prac</h2>
+            <p class="text-sm uppercase tracking-[0.35em] text-[color:var(--gold)]">Precyzja i spokój</p>
+          </div>
+          <div class="grid gap-6 md:grid-cols-2">
+            {[
+              'montaż szaf PAX i zabudów do sufitu',
+              'montaż kuchni METOD',
+              'montaż systemów PLATSA i innych mebli systemowych',
+              'regulacja drzwi, szuflad i frontów',
+              'stabilne mocowanie mebli do ściany (bezpieczeństwo)',
+            ].map((item) => (
+              <div class="border border-[color:var(--gold)]/40 px-6 py-5">
+                <div class="mb-2 h-px w-12 bg-[color:var(--gold)]"></div>
+                <p class="text-base leading-relaxed">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-auto bg-[color:var(--paper)] px-6 py-16 text-[#1b1c1f]">
+        <div class="mx-auto max-w-5xl">
+          <div class="max-w-2xl space-y-4">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">Jak wygląda montaż</h2>
+            <p class="text-base leading-relaxed">
+              Pracuję etapowo, z naciskiem na dokładność i estetykę na każdym kroku.
+            </p>
+          </div>
+          <div class="mt-10 grid gap-6 md:grid-cols-2">
+            {[
+              'Sprawdzenie warunków na miejscu i dopasowanie ustawienia mebli',
+              'Montaż zgodnie z zaleceniami producenta',
+              'Regulacja drzwi, zawiasów i prowadnic',
+              'Kontrola stabilności i finalne dopracowanie detali',
+            ].map((step, index) => (
+              <div class="border border-[#d4c7a9] bg-white/70 px-6 py-6">
+                <p class="text-sm uppercase tracking-[0.3em] text-[color:var(--gold)]">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <p class="mt-4 text-base leading-relaxed">{step}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-auto px-6 py-16">
+        <div class="mx-auto max-w-5xl space-y-10">
+          <div class="max-w-2xl space-y-4">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">Dla kogo to jest</h2>
+          </div>
+          <ul class="space-y-4 text-base leading-relaxed">
+            <li class="border-l-2 border-[color:var(--gold)] pl-4">
+              dla osób, którym zależy na estetyce i spójnym wnętrzu
+            </li>
+            <li class="border-l-2 border-[color:var(--gold)] pl-4">
+              dla tych, którzy chcą porządku po zakończonej pracy
+            </li>
+            <li class="border-l-2 border-[color:var(--gold)] pl-4">
+              dla klientów, którzy wolą dopracowany efekt niż szybkie skręcenie
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="cv-auto bg-[color:var(--paper)] px-6 py-16 text-[#1b1c1f]">
+        <div class="mx-auto max-w-5xl space-y-10">
+          <div class="max-w-2xl space-y-4">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">Obszar działania</h2>
+            <p class="text-base leading-relaxed">Katowice, Gliwice, Zabrze</p>
+          </div>
+          <a
+            href="/obszar-dzialania"
+            class="inline-flex items-center justify-center rounded-full border border-[color:var(--gold)] px-6 py-3 text-xs uppercase tracking-[0.3em] text-[color:var(--gold)]"
+          >
+            Zobacz obszar działania
+          </a>
+        </div>
+      </section>
+
+      <section class="cv-auto px-6 py-16">
+        <div class="mx-auto max-w-5xl space-y-10">
+          <div class="max-w-2xl space-y-4">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">O mnie</h2>
+            <p class="text-base leading-relaxed">
+              Na co dzień zajmuję się montażem mebli w mieszkaniach i domach na Śląsku. Skupiam
+              się na dokładności wykonania, estetyce i porządku po zakończonych pracach.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="cv-auto bg-[color:var(--paper)] px-6 py-16 text-[#1b1c1f]">
+        <div class="mx-auto max-w-5xl space-y-10">
+          <div class="max-w-2xl space-y-4">
+            <h2 class="font-serif text-3xl uppercase tracking-[0.08em]">Kontakt</h2>
+            <p class="text-base leading-relaxed">Telefon: XXX XXX XXX</p>
+            <p class="text-base leading-relaxed">Email: kontakt@detalstudio.pl</p>
+          </div>
+          <div class="placeholder light flex min-h-[220px] items-center justify-center text-sm uppercase tracking-[0.3em]">
+            Placeholder formularza / mapy
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="px-6 py-10 text-xs uppercase tracking-[0.3em] text-[color:var(--text)]/70">
+      <div class="mx-auto flex max-w-5xl flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <span>Detal Studio</span>
+        <div class="flex gap-6">
+          <a href="#kontakt" class="hover:text-[color:var(--gold)]">Kontakt</a>
+          <a href="/polityka-prywatnosci" class="hover:text-[color:var(--gold)]">Polityka prywatności</a>
+        </div>
+      </div>
+    </footer>
+
+    <script is:inline>
+      const slides = Array.from(document.querySelectorAll('.hero-slide'));
+      const prevButton = document.querySelector('.slide-prev');
+      const nextButton = document.querySelector('.slide-next');
+      const counter = document.querySelector('#slide-counter');
+      let currentIndex = 0;
+
+      const updateSlides = (nextIndex) => {
+        slides[currentIndex].classList.add('hidden');
+        slides[nextIndex].classList.remove('hidden');
+        currentIndex = nextIndex;
+        if (counter) {
+          counter.textContent = `${String(currentIndex + 1).padStart(2, '0')} / 03`;
+        }
+      };
+
+      const goPrev = () => updateSlides((currentIndex + slides.length - 1) % slides.length);
+      const goNext = () => updateSlides((currentIndex + 1) % slides.length);
+
+      prevButton?.addEventListener('click', goPrev);
+      nextButton?.addEventListener('click', goNext);
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        prevButton?.setAttribute('disabled', 'true');
+        nextButton?.setAttribute('disabled', 'true');
+      }
+    </script>
+  </body>
+</html>
